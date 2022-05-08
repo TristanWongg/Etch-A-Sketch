@@ -10,14 +10,19 @@ function makeGrid(dimension){
             let gridItem = document.createElement('div');
             gridItem.classList = 'grid-item';
             gridItem.style.border = "thin solid black";
-            gridItem.style.textAlign = "center";
+
+            // let colors = ['#ff0000', '#00ff00', '#0000ff'];
+            // let random_color = colors[Math.floor(Math.random() * colors.length)];
+
+            let colors = '#' + (0x1000000 + Math.random() * 0xFFFFFF).toString(16).substr(1,6);
             gridItem.addEventListener("mouseover", () => {
-                gridItem.style.backgroundColor = "green";
+                gridItem.style.backgroundColor = `${colors}`;
             });
-            gridItem.addEventListener("mouseout", () => {
-                gridItem.style.transitionDelay = "1s";
+
+            gridItem.addEventListener("mousedown", () => {
                 gridItem.style.backgroundColor = "white";
             });
+
             container.appendChild(gridItem);
             container.style.gridTemplateRows = `repeat(${dimension}, 1fr)`;
             container.style.gridTemplateColumns = `repeat(${dimension}, 1fr)`;
