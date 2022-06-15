@@ -11,9 +11,6 @@ function makeGrid(dimension){
             gridItem.classList = 'grid-item';
             gridItem.style.border = "thin solid black";
 
-            // let colors = ['#ff0000', '#00ff00', '#0000ff'];
-            // let random_color = colors[Math.floor(Math.random() * colors.length)];
-
             let colors = '#' + (0x1000000 + Math.random() * 0xFFFFFF).toString(16).substr(1,6);
             gridItem.addEventListener("mouseover", () => {
                 gridItem.style.backgroundColor = `${colors}`;
